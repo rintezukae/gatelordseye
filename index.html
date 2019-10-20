@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <style>
             body {
                 margin-top: 20vh;
@@ -30,7 +31,8 @@
             }
             
             function elundis(btn) {
-                console.log(btn.src.slice(-6, -5));
+                console.log(btn.src.slice(-7, -5));
+                document.getElementById("tooltip").src = "img/tooltip" + btn.src.slice(-7, -5) + ".png";
                 if (available > 11 && btn.src.slice(-6, -5) == 2) {
                     return;
                 }
@@ -44,6 +46,10 @@
                 }
 
                 if (available > 2 && btn.src.slice(-6, -5) == 5) {
+                    return;
+                }
+
+                if (available == 0) {
                     return;
                 }
 
@@ -66,6 +72,7 @@
     <body onload="init();">
         <img src="img/base.png" style="position: absolute; pointer-events: none; z-index: 0;">
         <p id="available" style="position: absolute; margin-left: 101px; margin-top: 0px;"></p>
+        <img id="tooltip" src="" alt="" style="position: absolute; margin-left: 540px; margin-top: 47px;">
 
         <input type="image" src="img/110.png" style="margin-left: 12px;  margin-top: 47px;" onclick="elundis(this);">
         <input type="image" src="img/120.png" style="margin-left: 118px; margin-top: 47px;" onclick="elundis(this);">
