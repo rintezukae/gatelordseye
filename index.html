@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin-top: 20vh;
+                margin-left: 10vw;
+                background-color: #121923;
+            }
+
+            p {
+                color: #c2c3c3;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14pt;
+            }
+
+            img {
+                background-color: #102d32;
+            }
+
+            input {
+                position: absolute;
+                z-index: 1;
+            }
+        </style>
+        <script>
+            var available = 12;
+            function init() {
+                document.getElementById("available").innerHTML = available;
+            }
+            
+            function elundis(btn) {
+                console.log(btn.src.slice(-6, -5));
+                if (available > 11 && btn.src.slice(-6, -5) == 2) {
+                    return;
+                }
+
+                if (available > 8 && btn.src.slice(-6, -5) == 3) {
+                    return;
+                }
+
+                if (available > 5 && btn.src.slice(-6, -5) == 4) {
+                    return;
+                }
+
+                if (available > 2 && btn.src.slice(-6, -5) == 5) {
+                    return;
+                }
+
+                if (btn.src.slice(-5, -4) == 0) {
+                    available -= 1;
+                    document.getElementById("available").innerHTML = available;
+                    btn.src = btn.src.slice(0, -5) + "1" + btn.src.slice(-4);
+                } else if (btn.src.slice(-5, -4) == 1) {
+                    available += 1;
+                    document.getElementById("available").innerHTML = available;
+                    btn.src = btn.src.slice(0, -5) + "0" + btn.src.slice(-4);
+                }
+            }
+
+            function reset() {
+                location.reload();
+            }
+        </script>
+    </head>
+    <body onload="init();">
+        <img src="img/base.png" style="position: absolute; pointer-events: none; z-index: 0;">
+        <p id="available" style="position: absolute; margin-left: 101px; margin-top: 0px;"></p>
+
+        <input type="image" src="img/110.png" style="margin-left: 12px;  margin-top: 47px;" onclick="elundis(this);">
+        <input type="image" src="img/120.png" style="margin-left: 118px; margin-top: 47px;" onclick="elundis(this);">
+        <input type="image" src="img/130.png" style="margin-left: 222px; margin-top: 47px;" onclick="elundis(this);">
+        <input type="image" src="img/140.png" style="margin-left: 331px; margin-top: 47px;" onclick="elundis(this);">
+        <input type="image" src="img/150.png" style="margin-left: 437px; margin-top: 47px;" onclick="elundis(this);" >
+
+        <input type="image" src="img/210.png" style="margin-left: 12px;  margin-top: 153px;" onclick="elundis(this);">
+        <input type="image" src="img/220.png" style="margin-left: 118px; margin-top: 153px;" onclick="elundis(this);">
+        <input type="image" src="img/230.png" style="margin-left: 222px; margin-top: 153px;" onclick="elundis(this);">
+        <input type="image" src="img/240.png" style="margin-left: 331px; margin-top: 153px;" onclick="elundis(this);">
+        <input type="image" src="img/250.png" style="margin-left: 437px; margin-top: 153px;" onclick="elundis(this);">
+
+        <input type="image" src="img/310.png" style="margin-left: 12px;  margin-top: 259px;" onclick="elundis(this);">
+        <input type="image" src="img/320.png" style="margin-left: 118px; margin-top: 259px;" onclick="elundis(this);">
+        <input type="image" src="img/330.png" style="margin-left: 222px; margin-top: 259px;" onclick="elundis(this);">
+        <input type="image" src="img/340.png" style="margin-left: 331px; margin-top: 259px;" onclick="elundis(this);">
+        <input type="image" src="img/350.png" style="margin-left: 437px; margin-top: 259px;" onclick="elundis(this);">
+
+        <input type="image" src="img/410.png" style="margin-left: 12px;  margin-top: 367px;" onclick="elundis(this);">
+        <input type="image" src="img/420.png" style="margin-left: 118px; margin-top: 367px;" onclick="elundis(this);">
+        <input type="image" src="img/430.png" style="margin-left: 222px; margin-top: 367px;" onclick="elundis(this);">
+        <input type="image" src="img/440.png" style="margin-left: 331px; margin-top: 367px;" onclick="elundis(this);">
+        <input type="image" src="img/450.png" style="margin-left: 437px; margin-top: 367px;" onclick="elundis(this);">
+
+        <input type="image" src="img/510.png" style="margin-left: 12px;  margin-top: 473px;" onclick="elundis(this);">
+        <input type="image" src="img/520.png" style="margin-left: 118px; margin-top: 473px;" onclick="elundis(this);">
+        <input type="image" src="img/530.png" style="margin-left: 222px; margin-top: 473px;" onclick="elundis(this);">
+        <input type="image" src="img/540.png" style="margin-left: 331px; margin-top: 473px;" onclick="elundis(this);">
+        <input type="image" src="img/550.png" style="margin-left: 437px; margin-top: 473px;" onclick="elundis(this);">
+
+        <input type="image" src="img/reset.png" style="margin-top: 642px;" onclick="reset();">
+    </body>
+</html>
